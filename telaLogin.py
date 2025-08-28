@@ -22,15 +22,13 @@ def Login():
         show="*",
     ).pack(padx=10, pady=10)
 
-    botao = button(
+    button(
         tela_login,
         text="Entrar",
         width=10,
         height=1,
         command=lambda: verificacao(tela_login, usuario.get(), senha.get()),
     )
-    animacao_botao(botao)
-    botao.pack(pady=5)
 
     tela_login.config(background=BACKGROUND)
     tela_login.geometry("300x300")
