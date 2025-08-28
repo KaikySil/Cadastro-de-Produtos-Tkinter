@@ -5,7 +5,7 @@ from configs import *
 def Login():
     tela_login = tk.Tk()
     tela_login.title("Login")
-    formatar_centro(tela_login)
+    formatar_centro(tela_login, 300, 300)
 
     usuario = tk.StringVar()
     senha = tk.StringVar()
@@ -31,7 +31,6 @@ def Login():
     )
 
     tela_login.config(background=BACKGROUND)
-    tela_login.geometry("300x300")
     tela_login.mainloop()
 
 

@@ -30,8 +30,9 @@ def adicionar_produtos(janela_opcoes: tk.Tk, produtos: dict):
         )
         entrada.pack(padx=10, pady=5)
         entradas.append(entrada)
+        print(entradas)
 
-    botao_adicionar = button(
+    button(
         janela_adicionar,
         text="Adicionar",
         command=lambda: lancar_produtos(
@@ -43,20 +44,15 @@ def adicionar_produtos(janela_opcoes: tk.Tk, produtos: dict):
         ),
     )
 
-    animacao_botao(botao_adicionar)
-    botao_adicionar.pack(pady=10)
-
-    botao_voltar = button(
+    button(
         janela_adicionar,
         text="<---",
         width=7,
         command=lambda: telaOpcoes.fechar_janela(janela_adicionar, janela_opcoes),
     )
-    animacao_botao(botao_voltar)
-    botao_voltar.pack(pady=10)
 
     janela_adicionar.config(background=BACKGROUND)
-    formatar_centro(janela_adicionar)
+    formatar_centro(janela_adicionar, 550, 400)
     janela_adicionar.geometry("550x400")
     janela_adicionar.title("Adicionar Produtos")
 

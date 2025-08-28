@@ -11,9 +11,8 @@ def produto_editar(produtos: dict, janela_opcoes: tk.Tk):
             if nome_produto_editar in produtos:
                 janela_opcoes_edicao = tk.Toplevel(janela_editar_nome)
                 janela_opcoes_edicao.config(background=BACKGROUND)
-                formatar_centro(janela_opcoes_edicao)
+                formatar_centro(janela_opcoes_edicao, 300, 300)
                 janela_opcoes_edicao.title("Opções de Edição")
-                janela_opcoes_edicao.geometry("300x300")
 
                 opcoes = {
                     "Editar Nome": (
@@ -36,11 +35,9 @@ def produto_editar(produtos: dict, janela_opcoes: tk.Tk):
 
                 for i in opcoes:
                     funcao = opcoes[i]
-                    botao_opcoes_edicao = button(
+                    button(
                         janela_opcoes_edicao, text=i, width=10, command=funcao
                     )
-                    animacao_botao(botao_opcoes_edicao)
-                    botao_opcoes_edicao.pack(pady=15)
 
             else:
                 label_erro(
@@ -90,7 +87,7 @@ def produto_editar(produtos: dict, janela_opcoes: tk.Tk):
 
                 entry(janela_editar_nome, textvariable=nome_editar_string).pack(pady=10)
 
-                botao_nome_alterar = button(
+                button(
                     janela_editar_nome,
                     text="Alterar",
                     command=lambda: nome_alterar(
@@ -99,13 +96,10 @@ def produto_editar(produtos: dict, janela_opcoes: tk.Tk):
                         janela_editar_nome,
                     ),
                 )
-                animacao_botao(botao_nome_alterar)
-                botao_nome_alterar.pack(pady=10)
 
                 janela_editar_nome.config(background=BACKGROUND)
-                formatar_centro(janela_editar_nome)
+                formatar_centro(janela_editar_nome, 500, 200)
                 janela_editar_nome.title("Editar Nome")
-                janela_editar_nome.geometry("500x200")
                 janela_editar_nome.mainloop()
             else:
                 label_erro(
@@ -145,19 +139,15 @@ def produto_editar(produtos: dict, janela_opcoes: tk.Tk):
 
                 entry(janela_preco_editar, textvariable=novoPreco).pack(pady=10)
 
-                botao_preco_alterar = button(
+                button(
                     janela_preco_editar,
                     text="Alterar",
                     command=lambda: preco_alterar(nome_produto_editar, novoPreco.get()),
                 )
-                animacao_botao(botao_preco_alterar)
-                botao_preco_alterar.pack(pady=10)
 
                 janela_preco_editar.config(background=BACKGROUND)
-                formatar_centro(janela_preco_editar)
+                formatar_centro(janela_preco_editar, 400, 200)
                 janela_preco_editar.title("Editar Preço")
-                janela_preco_editar.geometry("400x200")
-
             else:
                 label_erro(janela_opcoes_edicao, text="Produto removido!")
 
@@ -191,20 +181,17 @@ def produto_editar(produtos: dict, janela_opcoes: tk.Tk):
 
                 entry(janela_qtde_editar, textvariable=qtde_nova).pack(pady=10)
 
-                botao_qtde_editar = button(
+                button(
                     janela_qtde_editar,
                     text="Alterar",
                     command=lambda: quantidade_alterar(
                         nome_produto_editar, qtde_nova.get(), janela_qtde_editar
                     ),
                 )
-                animacao_botao(botao_qtde_editar)
-                botao_qtde_editar.pack(pady=10)
 
                 janela_qtde_editar.config(background=BACKGROUND)
-                formatar_centro(janela_qtde_editar)
+                formatar_centro(janela_qtde_editar, 450, 200)
                 janela_qtde_editar.title("Editar Quantidade")
-                janela_qtde_editar.geometry("450x200")
             else:
                 label_erro(
                     janela_opcoes_edicao,
@@ -237,17 +224,14 @@ def produto_editar(produtos: dict, janela_opcoes: tk.Tk):
 
         entry(janela_editar, textvariable=nome_produto_editar).pack(pady=10)
 
-        botao_verificar = button(
+        button(
             janela_editar,
             text="Verificar",
             command=lambda: produto_verificar(nome_produto_editar.get(), janela_editar),
         )
-        animacao_botao(botao_verificar)
-        botao_verificar.pack(pady=10)
 
-        formatar_centro(janela_editar)
+        formatar_centro(janela_editar, 500, 200)
         janela_editar.config(background=BACKGROUND)
-        janela_editar.geometry("500x200")
         janela_editar.title("Nome do Produto")
         janela_editar.mainloop()
     else:

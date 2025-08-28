@@ -48,16 +48,13 @@ def opcoes(tela_login: tk.Tk):
 
     for i in opcoes:
         largura, altura, funcao = opcoes[i]
-        botao = button(
+        button(
             janela_opcoes, text=f"{i}", width=largura, height=altura, command=funcao
         )
-        animacao_botao(botao)
-        botao.pack(pady=15)
 
     janela_opcoes.protocol("WM_DELETE_WINDOW", lambda: fechar_programa(janela_opcoes))
 
-    formatar_centro(janela_opcoes)
+    formatar_centro(janela_opcoes, 400, 400)
     janela_opcoes.config(background=BACKGROUND)
-    janela_opcoes.geometry("400x400")
     janela_opcoes.title("Opções Gerais")
     janela_opcoes.mainloop()

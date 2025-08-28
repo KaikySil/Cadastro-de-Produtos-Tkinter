@@ -45,20 +45,17 @@ def visualizar_produto(produtos, janela_opcoes):
 
         entry(janela_visualizacao, textvariable=ver_produto_info).pack(pady=10)
 
-        botao_produto_buscar = button(
+        button(
             janela_visualizacao,
             text="Buscar",
             command=lambda: ver_produto_existe(
                 ver_produto_info.get(), janela_visualizacao
             ),
         )
-        animacao_botao(botao_produto_buscar)
-        botao_produto_buscar.pack(pady=10)
 
-        formatar_centro(janela_visualizacao)
+        formatar_centro(janela_visualizacao, 400, 300)
         janela_visualizacao.config(background=BACKGROUND)
         janela_visualizacao.title("Nome do Produto")
-        janela_visualizacao.geometry("400x300")
         janela_visualizacao.mainloop()
 
     else:
@@ -130,9 +127,7 @@ def vizualizacao_geral(produtos, janela_opcoes):
 
         janela_visualizacao_geral.grid_columnconfigure(0, weight=1)
 
-        formatar_centro(janela_visualizacao_geral)
-        janela_visualizacao_geral.geometry("800x800")
-
+        formatar_centro(janela_visualizacao_geral, 800, 800)
     else:
         label_erro(
             janela_opcoes,

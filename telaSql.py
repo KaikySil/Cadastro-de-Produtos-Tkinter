@@ -7,7 +7,7 @@ from datetime import datetime
 def importar_sql(produtos: dict, janela_opcoes: tk.Tk):
     if produtos != {}:
         janela_sql = tk.Toplevel(janela_opcoes)
-        formatar_centro(janela_sql)
+        formatar_centro(janela_sql, 400, 400)
         nome_host = tk.StringVar()
         nome_user = tk.StringVar()
         senha_base = tk.StringVar()
@@ -27,7 +27,7 @@ def importar_sql(produtos: dict, janela_opcoes: tk.Tk):
             else:
                 entry(janela_sql, textvariable=valor).pack()
 
-        botao_add_sql = button(
+        button(
             janela_sql,
             text="Adicionar",
             width=10,
@@ -39,11 +39,8 @@ def importar_sql(produtos: dict, janela_opcoes: tk.Tk):
                 janela_sql,
             ),
         )
-        animacao_botao(botao_add_sql)
-        botao_add_sql.pack(pady=20)
 
         janela_sql.config(bg=BACKGROUND)
-        janela_sql.geometry("400x400")
         janela_sql.title("Informações do Banco SQL")
 
         def verificar_base(

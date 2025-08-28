@@ -10,16 +10,13 @@ TEXTO_INCORRETO = "#c20000"
 TEXTO_SUCESSO = "#398503"
 
 
-def formatar_centro(tela):
-    w = 50
-    h = 400
-
+def formatar_centro(tela, width, height):
     ws = tela.winfo_screenwidth()
     hs = tela.winfo_screenheight()
         
-    x = (ws/2) - (w/2)
-    y = (hs/2) - (h/2)
-    return tela.geometry('%dx%d+%d+%d' % (w, h, x, y))
+    x = (ws/2) - (width/2)
+    y = (hs/2) - (height/2)
+    return tela.geometry('%dx%d+%d+%d' % (width, height, x, y))
 
 
 def passar_mouse(event):
@@ -28,11 +25,6 @@ def passar_mouse(event):
 
 def sair_mouse(event):
     event.widget.config(bg = BACKGROUND_BUTTON)
-
-
-def animacao_botao(button):
-    button.bind("<Enter>", passar_mouse)
-    button.bind("<Leave>", sair_mouse)
 
 
 def button(janela_pai, **kwargs):
@@ -45,7 +37,10 @@ def button(janela_pai, **kwargs):
         "cursor": "hand2"
     }
     configuracoes.update(kwargs)
-    return tk.Button(janela_pai, **configuracoes)
+    botao = tk.Button(janela_pai, **configuracoes)
+    botao.bind("<Enter>", passar_mouse)
+    botao.bind("<Leave>", sair_mouse)
+    return botao.pack(pady=10, padx=10)
 
 
 def label(janela_pai, **kwargs):
