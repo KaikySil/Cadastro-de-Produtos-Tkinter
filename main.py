@@ -1,4 +1,4 @@
-import telaOpcoes
+import Faculdade.BackEnd.Python.Estudo.Cadastro_produtos.cadastroTkinter.opcoes as opcoes
 from configs import *
 
 
@@ -45,7 +45,7 @@ def verificacao(tela_login: tk.Tk, usuario: str, senha: str):
 
     if usuario:
         if senha:
-            telaOpcoes.opcoes(tela_login)
+            opcoes.opcoes(tela_login)
         else:
             janela_incorreto()
     else:

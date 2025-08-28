@@ -1,5 +1,5 @@
 import tkinter as tk
-import telaOpcoes
+import Faculdade.BackEnd.Python.Estudo.Cadastro_produtos.cadastroTkinter.opcoes as opcoes
 from configs import *
 
 
@@ -48,7 +48,7 @@ def adicionar_produtos(janela_opcoes: tk.Tk, produtos: dict):
         janela_adicionar,
         text="<---",
         width=7,
-        command=lambda: telaOpcoes.fechar_janela(janela_adicionar, janela_opcoes),
+        command=lambda: opcoes.fechar_janela(janela_adicionar, janela_opcoes),
     )
 
     janela_adicionar.config(background=BACKGROUND)

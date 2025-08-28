@@ -1,8 +1,8 @@
 import tkinter as tk
-import telaEdicao
-import telaVisualizacao
-import telaAdicionar
-import telaSql
+import Faculdade.BackEnd.Python.Estudo.Cadastro_produtos.cadastroTkinter.editar as editar
+import Faculdade.BackEnd.Python.Estudo.Cadastro_produtos.cadastroTkinter.visualizar as visualizar
+import Faculdade.BackEnd.Python.Estudo.Cadastro_produtos.cadastroTkinter.adicionar as adicionar
+import Faculdade.BackEnd.Python.Estudo.Cadastro_produtos.cadastroTkinter.conectarsql as conectarsql
 from configs import *
 
 
@@ -30,19 +30,19 @@ def opcoes(tela_login: tk.Tk):
         "Adicionar": (
             15,
             2,
-            lambda: telaAdicionar.adicionar_produtos(janela_opcoes, Produtos),
+            lambda: adicionar.adicionar_produtos(janela_opcoes, Produtos),
         ),
-        "Editar": (15, 2, lambda: telaEdicao.produto_editar(Produtos, janela_opcoes)),
-        "Ver Info": (15, 2, lambda: telaVisualizacao.visualizar_produto(Produtos, janela_opcoes)),
+        "Editar": (15, 2, lambda: editar.produto_editar(Produtos, janela_opcoes)),
+        "Ver Info": (15, 2, lambda: visualizar.visualizar_produto(Produtos, janela_opcoes)),
         "Infos Gerais": (
             15,
             2,
-            lambda: telaVisualizacao.vizualizacao_geral(Produtos, janela_opcoes),
+            lambda: visualizar.vizualizacao_geral(Produtos, janela_opcoes),
         ),
         "Adicionar ao SQL": (
             15,
             2,
-            lambda: telaSql.importar_sql(Produtos, janela_opcoes),
+            lambda: conectarsql.importar_sql(Produtos, janela_opcoes),
         ),
     }
 
