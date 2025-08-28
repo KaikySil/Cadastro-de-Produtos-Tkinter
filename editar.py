@@ -10,9 +10,7 @@ def produto_editar(produtos: dict, janela_opcoes: tk.Tk):
             nome_produto_editar = nome_produto_editar.upper()
             if nome_produto_editar in produtos:
                 janela_opcoes_edicao = tk.Toplevel(janela_editar_nome)
-                janela_opcoes_edicao.config(background=BACKGROUND)
-                formatar_centro(janela_opcoes_edicao, 300, 300)
-                janela_opcoes_edicao.title("Opções de Edição")
+                formatar_centro(janela_opcoes_edicao, 300, 300, "Opções de Edição")
 
                 opcoes = {
                     "Editar Nome": (
@@ -35,9 +33,7 @@ def produto_editar(produtos: dict, janela_opcoes: tk.Tk):
 
                 for i in opcoes:
                     funcao = opcoes[i]
-                    button(
-                        janela_opcoes_edicao, text=i, width=10, command=funcao
-                    )
+                    button(janela_opcoes_edicao, text=i, width=10, command=funcao)
 
             else:
                 label_erro(
@@ -97,9 +93,7 @@ def produto_editar(produtos: dict, janela_opcoes: tk.Tk):
                     ),
                 )
 
-                janela_editar_nome.config(background=BACKGROUND)
-                formatar_centro(janela_editar_nome, 500, 200)
-                janela_editar_nome.title("Editar Nome")
+                formatar_centro(janela_editar_nome, 500, 200, "Editar Nome")
                 janela_editar_nome.mainloop()
             else:
                 label_erro(
@@ -145,9 +139,7 @@ def produto_editar(produtos: dict, janela_opcoes: tk.Tk):
                     command=lambda: preco_alterar(nome_produto_editar, novoPreco.get()),
                 )
 
-                janela_preco_editar.config(background=BACKGROUND)
-                formatar_centro(janela_preco_editar, 400, 200)
-                janela_preco_editar.title("Editar Preço")
+                formatar_centro(janela_preco_editar, 400, 200, "Editar Preço")
             else:
                 label_erro(janela_opcoes_edicao, text="Produto removido!")
 
@@ -189,9 +181,7 @@ def produto_editar(produtos: dict, janela_opcoes: tk.Tk):
                     ),
                 )
 
-                janela_qtde_editar.config(background=BACKGROUND)
-                formatar_centro(janela_qtde_editar, 450, 200)
-                janela_qtde_editar.title("Editar Quantidade")
+                formatar_centro(janela_qtde_editar, 450, 200, "Editar Quantidade")
             else:
                 label_erro(
                     janela_opcoes_edicao,
@@ -230,9 +220,7 @@ def produto_editar(produtos: dict, janela_opcoes: tk.Tk):
             command=lambda: produto_verificar(nome_produto_editar.get(), janela_editar),
         )
 
-        formatar_centro(janela_editar, 500, 200)
-        janela_editar.config(background=BACKGROUND)
-        janela_editar.title("Nome do Produto")
+        formatar_centro(janela_editar, 500, 200, "Nome do Produto")
         janela_editar.mainloop()
     else:
         label_erro(

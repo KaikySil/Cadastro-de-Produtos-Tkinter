@@ -7,7 +7,7 @@ from datetime import datetime
 def importar_sql(produtos: dict, janela_opcoes: tk.Tk):
     if produtos != {}:
         janela_sql = tk.Toplevel(janela_opcoes)
-        formatar_centro(janela_sql, 400, 400)
+        formatar_centro(janela_sql, 400, 400, "Informações do Banco SQL")
         nome_host = tk.StringVar()
         nome_user = tk.StringVar()
         senha_base = tk.StringVar()
@@ -40,8 +40,6 @@ def importar_sql(produtos: dict, janela_opcoes: tk.Tk):
             ),
         )
 
-        janela_sql.config(bg=BACKGROUND)
-        janela_sql.title("Informações do Banco SQL")
 
         def verificar_base(
             nome_host: str,

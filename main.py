@@ -1,11 +1,10 @@
-import Faculdade.BackEnd.Python.Estudo.Cadastro_produtos.cadastroTkinter.opcoes as opcoes
+import opcoes as opcoes
 from configs import *
 
 
 def Login():
     tela_login = tk.Tk()
-    tela_login.title("Login")
-    formatar_centro(tela_login, 300, 300)
+    formatar_centro(tela_login, 300, 300, "Login")
 
     usuario = tk.StringVar()
     senha = tk.StringVar()
@@ -25,8 +24,6 @@ def Login():
     button(
         tela_login,
         text="Entrar",
-        width=10,
-        height=1,
         command=lambda: verificacao(tela_login, usuario.get(), senha.get()),
     )
 
@@ -51,5 +48,5 @@ def verificacao(tela_login: tk.Tk, usuario: str, senha: str):
     else:
         janela_incorreto()
 
-
-Login()
+if __name__ == "__main__":
+    Login()

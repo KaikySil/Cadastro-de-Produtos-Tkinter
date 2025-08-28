@@ -53,9 +53,7 @@ def visualizar_produto(produtos, janela_opcoes):
             ),
         )
 
-        formatar_centro(janela_visualizacao, 400, 300)
-        janela_visualizacao.config(background=BACKGROUND)
-        janela_visualizacao.title("Nome do Produto")
+        formatar_centro(janela_visualizacao, 400, 300, "Nome do Produto")
         janela_visualizacao.mainloop()
 
     else:

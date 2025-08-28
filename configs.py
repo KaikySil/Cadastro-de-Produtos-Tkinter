@@ -10,12 +10,14 @@ TEXTO_INCORRETO = "#c20000"
 TEXTO_SUCESSO = "#398503"
 
 
-def formatar_centro(tela, width, height):
+def formatar_centro(tela, width, height, nome):
     ws = tela.winfo_screenwidth()
     hs = tela.winfo_screenheight()
 
     x = (ws / 2) - (width / 2)
     y = (hs / 2) - (height / 2)
+    tela.title(nome)
+    tela.config(background = BACKGROUND)
     return tela.geometry("%dx%d+%d+%d" % (width, height, x, y))
 
 
@@ -35,6 +37,8 @@ def button(janela_pai, **kwargs):
         "activebackground": BACKGROUND,
         "activeforeground": TEXTO,
         "cursor": "hand2",
+        "width": 10,
+        "height": 1,
     }
     configuracoes.update(kwargs)
     botao = tk.Button(janela_pai, **configuracoes)

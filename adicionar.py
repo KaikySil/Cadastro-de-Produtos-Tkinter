@@ -1,5 +1,5 @@
 import tkinter as tk
-import Faculdade.BackEnd.Python.Estudo.Cadastro_produtos.cadastroTkinter.opcoes as opcoes
+import opcoes as opcoes
 from configs import *
 
 
@@ -30,7 +30,6 @@ def adicionar_produtos(janela_opcoes: tk.Tk, produtos: dict):
         )
         entrada.pack(padx=10, pady=5)
         entradas.append(entrada)
-        print(entradas)
 
     button(
         janela_adicionar,
@@ -46,15 +45,12 @@ def adicionar_produtos(janela_opcoes: tk.Tk, produtos: dict):
 
     button(
         janela_adicionar,
-        text="<---",
+        text="voltar",
         width=7,
         command=lambda: opcoes.fechar_janela(janela_adicionar, janela_opcoes),
     )
 
-    janela_adicionar.config(background=BACKGROUND)
-    formatar_centro(janela_adicionar, 550, 400)
-    janela_adicionar.geometry("550x400")
-    janela_adicionar.title("Adicionar Produtos")
+    formatar_centro(janela_adicionar, 550, 400, "Adicionar Produtos")
 
     def lancar_produtos(
         nome: str, valor: float, quantidade: int, entradas: int, janela_adicionar
@@ -65,14 +61,13 @@ def adicionar_produtos(janela_opcoes: tk.Tk, produtos: dict):
 
         try:
             if nome and valor and quantidade != "":
-                try:
-                    nome = int(nome)
+                if nome.isdecimal():
                     label_erro(
                         janela_adicionar,
                         text="Nome do Produto não pode ser um número!",
                     )
 
-                except ValueError:
+                else:
                     nome = nome.upper()
                     produtos[nome] = float(valor), int(quantidade)
                     for indice, chave in enumerate(produtos):
